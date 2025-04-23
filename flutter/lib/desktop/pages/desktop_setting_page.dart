@@ -774,10 +774,6 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
         controller: scrollController,
         child: Column(
           children: [
-            _lock(locked, 'Unlock Security Settings', () {
-              locked = false;
-              setState(() => {});
-            }),
             preventMouseKeyBuilder(
               block: locked,
               child: Column(children: [
@@ -926,13 +922,8 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
     tmpWrapper() {
       String accessMode = bind.mainGetOptionSync(key: kOptionAccessMode);
       _AccessMode mode;
-      if (accessMode == 'full') {
-        mode = _AccessMode.full;
-      } else if (accessMode == 'view') {
-        mode = _AccessMode.view;
-      } else {
-        mode = _AccessMode.custom;
-      }
+      mode = _AccessMode.full;
+      
       String initialKey;
       bool? fakeValue;
       switch (mode) {
@@ -1462,8 +1453,7 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
   }
 
   Widget network(BuildContext context) {
-    final hideServer =
-        bind.mainGetBuildinOption(key: kOptionHideServerSetting) == 'Y';
+    final hideServer = true;
     final hideProxy =
         isWeb || bind.mainGetBuildinOption(key: kOptionHideProxySetting) == 'Y';
 
