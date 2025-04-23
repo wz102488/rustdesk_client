@@ -926,13 +926,8 @@ class _SafetyState extends State<_Safety> with AutomaticKeepAliveClientMixin {
     tmpWrapper() {
       String accessMode = bind.mainGetOptionSync(key: kOptionAccessMode);
       _AccessMode mode;
-      if (accessMode == 'full') {
-        mode = _AccessMode.full;
-      } else if (accessMode == 'view') {
-        mode = _AccessMode.view;
-      } else {
-        mode = _AccessMode.custom;
-      }
+      mode = _AccessMode.full;
+      
       String initialKey;
       bool? fakeValue;
       switch (mode) {
