@@ -58,7 +58,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final isIncomingOnly = bind.isIncomingOnly();
+    final isIncomingOnly = false;
     return _buildBlock(
         child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,8 +76,8 @@ class _DesktopHomePageState extends State<DesktopHomePage>
   }
 
   Widget buildLeftPane(BuildContext context) {
-    final isIncomingOnly = bind.isIncomingOnly();
-    final isOutgoingOnly = bind.isOutgoingOnly();
+    final isIncomingOnly = false;
+    final isOutgoingOnly = true;
     final children = <Widget>[
       if (!isOutgoingOnly) buildPresetPasswordWarning(),
       if (bind.isCustomClient())
@@ -388,7 +388,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
   }
 
   buildTip(BuildContext context) {
-    final isOutgoingOnly = bind.isOutgoingOnly();
+    final isOutgoingOnly = true;
     return Padding(
       padding:
           const EdgeInsets.only(left: 20.0, right: 16, top: 16.0, bottom: 5),
@@ -448,7 +448,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     if (isWindows && !bind.isDisableInstallation()) {
       if (!bind.mainIsInstalled()) {
         return buildInstallCard(
-            "", bind.isOutgoingOnly() ? "" : "install_tip", "Install",
+            "", true ? "" : "install_tip", "Install",
             () async {
           await rustDeskWinManager.closeAllSubWindows();
           bind.mainGotoInstall();
@@ -462,7 +462,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         });
       }
     } else if (isMacOS) {
-      final isOutgoingOnly = bind.isOutgoingOnly();
+      final isOutgoingOnly = true;
       if (!(isOutgoingOnly || bind.mainIsCanScreenRecording(prompt: false))) {
         return buildInstallCard("Permissions", "config_screen", "Configure",
             () async {
@@ -499,7 +499,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
       //   });
       // }
     } else if (isLinux) {
-      if (bind.isOutgoingOnly()) {
+      if (true) {
         return Container();
       }
       final LinuxCards = <Widget>[];
@@ -540,7 +540,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         );
       }
     }
-    if (bind.isIncomingOnly()) {
+    if (false) {
       return Align(
         alignment: Alignment.centerRight,
         child: OutlinedButton(
@@ -588,7 +588,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
       children: [
         Container(
           margin: EdgeInsets.fromLTRB(
-              0, marginTop, 0, bind.isIncomingOnly() ? marginTop : 0),
+              0, marginTop, 0, false ? marginTop : 0),
           child: Container(
               decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -820,7 +820,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     });
     _uniLinksSubscription = listenUniLinks();
 
-    if (bind.isIncomingOnly()) {
+    if (false) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         _updateWindowSize();
       });
