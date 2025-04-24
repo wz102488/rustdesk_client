@@ -2,8 +2,8 @@ lazy_static::lazy_static! {
 pub static ref T: std::collections::HashMap<&'static str, &'static str> =
     [
         ("Status", "状态"),
-        ("Your Desktop", "卓泽电子王震出品"),
-        ("desk_tip", "请把下面的 ID 和密码提供给技术人员。"),
+        ("Your Desktop", "卓泽电子科技专用软件"),
+        ("desk_tip", "卓泽主售交换机 网关 无线 服务器 光网等设备 \n详询17792436330"),
         ("Password", "密码"),
         ("Ready", "就绪"),
         ("Established", "已建立"),
@@ -44,7 +44,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("id_change_tip", "只可以使用字母 a-z, A-Z, 0-9, - (dash), _ (下划线)。首字母必须是 a-z, A-Z。长度在 6 与 16 之间。"),
         ("Website", "网站"),
         ("About", "关于"),
-        ("Slogan_tip", "卓泽电子科技二次开发，其他公司谁用谁是狗。"),
+        ("Slogan_tip", "卓泽电子科技专用软件，购买网络设备请认准卓泽电子。"),
         ("Privacy Statement", "隐私声明"),
         ("Mute", "静音"),
         ("Build Date", "构建日期"),
